@@ -84,7 +84,7 @@
           x: defaultOffset.x,
           y: 0
         },
-        showSelect: true,
+        showSelect: false,
         didMount: false,
         MdSelect: {
           items: {},
