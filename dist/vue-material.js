@@ -8911,7 +8911,7 @@ exports.default = {
       }
     },
     openOrClose: function openOrClose() {
-      if (this.showSelect) {
+      if (!this.showSelect) {
         this.openSelect();
       } else {
         this.onClose();
