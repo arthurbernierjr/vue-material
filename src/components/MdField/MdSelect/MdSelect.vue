@@ -24,7 +24,7 @@
       @keydown.down="openSelect"
       @keydown.enter="openSelect"
       @keydown.space="openSelect"  />
-    <md-drop-down-icon @click.native="openSelect" />
+    <md-drop-down-icon @click.native="openOrClose" />
 
     <keep-alive>
       <md-menu-content
@@ -84,7 +84,7 @@
           x: defaultOffset.x,
           y: 0
         },
-        showSelect: false,
+        showSelect: true,
         didMount: false,
         MdSelect: {
           items: {},
@@ -199,7 +199,14 @@
       },
       openSelect () {
         if (!this.disabled) {
-          !this.showSelect
+          this.showSelect = true
+        }
+      },
+      openOrClose () {
+        if (this.showSelect){
+          this.openSelect()
+        } else {
+          this.onClose()
         }
       },
       arrayAccessorRemove (arr, index) {

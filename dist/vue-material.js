@@ -8793,7 +8793,7 @@ exports.default = {
         x: defaultOffset.x,
         y: 0
       },
-      showSelect: false,
+      showSelect: true,
       didMount: false,
       MdSelect: {
         items: {},
@@ -8907,7 +8907,14 @@ exports.default = {
     },
     openSelect: function openSelect() {
       if (!this.disabled) {
-        !this.showSelect;
+        this.showSelect = true;
+      }
+    },
+    openOrClose: function openOrClose() {
+      if (this.showSelect) {
+        this.openSelect();
+      } else {
+        this.onClose();
       }
     },
     arrayAccessorRemove: function arrayAccessorRemove(arr, index) {
@@ -28865,7 +28872,7 @@ var render = function() {
       _c("md-drop-down-icon", {
         nativeOn: {
           click: function($event) {
-            return _vm.openSelect($event)
+            return _vm.openOrClose($event)
           }
         }
       }),
