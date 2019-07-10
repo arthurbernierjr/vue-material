@@ -207,6 +207,7 @@
           this.openSelect()
         } else {
           this.onClose()
+          this.showSelect = false
         }
       },
       arrayAccessorRemove (arr, index) {

@@ -8915,6 +8915,7 @@ exports.default = {
         this.openSelect();
       } else {
         this.onClose();
+        this.showSelect = false;
       }
     },
     arrayAccessorRemove: function arrayAccessorRemove(arr, index) {
