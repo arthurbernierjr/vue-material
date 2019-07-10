@@ -199,7 +199,7 @@
       },
       openSelect () {
         if (!this.disabled) {
-          this.showSelect = true
+          !this.showSelect
         }
       },
       arrayAccessorRemove (arr, index) {
