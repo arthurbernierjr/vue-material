@@ -8765,7 +8765,7 @@ var _MdFieldMixin2 = _interopRequireDefault(_MdFieldMixin);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var defaultOffset = {
-  x: -15,
+  x: 0,
   y: -48
 };
 
@@ -8914,8 +8914,9 @@ exports.default = {
       if (!this.showSelect) {
         this.openSelect();
       } else {
-        this.onClose();
-        this.showSelect = false;
+        if (!this.disabled) {
+          this.showSelect = false;
+        }
       }
     },
     arrayAccessorRemove: function arrayAccessorRemove(arr, index) {
@@ -28817,7 +28818,7 @@ var render = function() {
                   $event.preventDefault()
                   return _vm.removeHighlight($event)
                 },
-                click: _vm.openSelect,
+                click: _vm.openOrClose,
                 keydown: [
                   function($event) {
                     if (

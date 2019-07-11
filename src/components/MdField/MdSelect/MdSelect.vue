@@ -20,7 +20,7 @@
       v-bind="attrs"
       @focus.prevent="onFocus"
       @blur.prevent="removeHighlight"
-      @click="openSelect"
+      @click="openOrClose"
       @keydown.down="openSelect"
       @keydown.enter="openSelect"
       @keydown.space="openSelect"  />
@@ -56,7 +56,7 @@
   import MdFieldMixin from '../MdFieldMixin'
 
   const defaultOffset = {
-    x: -15,
+    x: 0,
     y: -48
   }
 
@@ -206,8 +206,9 @@
         if (!this.showSelect){
           this.openSelect()
         } else {
-          this.onClose()
-          this.showSelect = false
+          if (!this.disabled) {
+            this.showSelect = false
+          }
         }
       },
       arrayAccessorRemove (arr, index) {
